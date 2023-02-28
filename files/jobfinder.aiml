@@ -6,6 +6,10 @@
             <template>
                 Your customized career path is "<get name = "job"/>". 
                 To restart, say "START".
+                <think>
+                    <set name = "job">undecided</set>
+                    <set name = "topic">none</set>
+                </think>
             </template>
         </category>
         <category>
