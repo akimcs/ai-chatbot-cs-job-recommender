@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    <topic name = "general">
+        <category>
+            <pattern>*</pattern>
+            <template>
+                Your customized career path is "<get name = "job"/>". 
+                To restart, say "START".
+            </template>
+        </category>
+        <category>
+            <pattern>START</pattern>
+            <template>
+                <think>
+                    <set name = "topic">none</set>
+                </think>
+                <srai>START</srai>
+            </template>
+        </category>
+    </topic>
+	<topic name = "start">
+	    <category>
+	        <pattern>^ NO ^</pattern>
+	        <template>
+	            No? That's alright. 
+	            If you would like to do so, please say "START" at any time.
+	            <think>
+	                <set name = "job">undecided</set>
+                    <set name = "topic">none</set>
+                </think>
+	        </template>
+        </category>
+        <category>
+            <pattern>^ YES ^</pattern>
+            <template>
+                Great! Try to answer my questions with either a "yes" or "no". 
+                To start off, are you a computer science major?
+                <think>
+                    <set name = "topic">csmajor</set>
+                </think>
+            </template>
+        </category>
+	</topic>
+	
+	<topic name = "csmajor">
+	    <category>
+	        <pattern>^ NO ^</pattern>
+	        <template>
+	            So you aren't a computer science major, got it. 
+	            Are you comfortable with coding?
+	            <think>
+                    <set name = "topic">noncs</set>
+                </think>
+	        </template>
+        </category>
+        <category>
+            <pattern>^ YES ^</pattern>
+            <template>
+                That's cool! Since you are a computer science major, 
+                do you like coding?
+                <think>
+                    <set name = "topic">cs</set>
+                </think>
+            </template>
+        </category>
+	</topic>
+	
+	<topic name = "noncs">
+	    <category>
+	        <pattern>^ NO ^</pattern>
+	        <template>
+	            Since you aren't a cs major and also don't like coding, 
+	            you should look into a career as a UI/UX Designer!
+	            <think>
+	                <set name = "job">UI/UX Designer</set>
+                    <set name = "topic">general</set>
+                </think>
+	        </template>
+        </category>
+        <category>
+	        <pattern>^ YES ^</pattern>
+	        <template>
+	            You aren't a cs major but like coding. 
+	            You should look into a career as a Software Engineer!
+	            <think>
+	                <set name = "job">Software Engineer</set>
+                    <set name = "topic">general</set>
+                </think>
+	        </template>
+        </category>
+	</topic>
+	
+	<topic name = "cs">
+	    <category>
+	        <pattern>^ NO ^</pattern>
+	        <template>
+	            You're a cs major but you don't like coding. 
+	            Try to look into am IT / Technical Support role!
+	            <think>
+	                <set name = "job">IT / Technical Support</set>
+                    <set name = "topic">general</set>
+                </think>
+	        </template>
+        </category>
+        <category>
+	        <pattern>^ YES ^</pattern>
+	        <template>
+	            You like coding! That's awesome. 
+	            What about working in a research position, would you like that?
+	            <think>
+                    <set name = "topic">research</set>
+                </think>
+	        </template>
+        </category>
+	</topic>
+	
+	<topic name = "research">
+	    <category>
+	        <pattern>^ NO ^</pattern>
+	        <template>
+	            Sounds like a Computer Hardware Engineer role would suit you!
+	            <think>
+	                <set name = "job">Computer Hardware Engineer</set>
+                    <set name = "topic">general</set>
+                </think>
+	        </template>
+        </category>
+        <category>
+	        <pattern>^ YES ^</pattern>
+	        <template>
+	            You would like to work in a research role! 
+	            Awesome! How about a teaching position?
+	            <think>
+                    <set name = "topic">teacher</set>
+                </think>
+	        </template>
+        </category>
+	</topic>
+	
+	<topic name = "teacher">
+	    <category>
+	        <pattern>^ NO ^</pattern>
+	        <template>
+	            You don't want to become a teacher. Got it. 
+	            Do you want to work in Artificial Intelligence?
+	            <think>
+                    <set name = "topic">ai</set>
+                </think>
+	        </template>
+        </category>
+        <category>
+	        <pattern>^ YES ^</pattern>
+	        <template>
+	            Sounds like you would be a good professor in the future! 
+	            Try to look into roles like a Computer Science Tutor/Teacher!
+	            <think>
+	                <set name = "job">Computer Science Tutor/Teacher</set>
+                    <set name = "topic">general</set>
+                </think>
+	        </template>
+        </category>
+	</topic>
+	
+	<topic name = "ai">
+	    <category>
+	        <pattern>^ NO ^</pattern>
+	        <template>
+	            What about machine learning?
+	            <think>
+                    <set name = "topic">ml</set>
+                </think>
+	        </template>
+        </category>
+        <category>
+	        <pattern>^ YES ^</pattern>
+	        <template>
+	            Sounds like working as an Artificial Intelligence 
+	            Engineer would suit you!
+                <think>
+                    <set name = "job">Artificial Intelligence Engineer</set>
+                    <set name = "topic">general</set>
+                </think>
+	        </template>
+        </category>
+	</topic>
+	
+	<topic name = "ml">
+	    <category>
+	        <pattern>^ NO ^</pattern>
+	        <template>
+	            You should look into general research instead! 
+	            Try pursuing CS Researcher / Scientist positions!
+	            <think>
+	                <set name = "job">CS Researcher / Scientist</set>
+                    <set name = "topic">general</set>
+                </think>
+	        </template>
+        </category>
+        <category>
+	        <pattern>^ YES ^</pattern>
+	        <template>
+	            You should try pursuing a career as a Machine Learning Engineer!
+                <think>
+                    <set name = "job">Machine Learning Engineer</set>
+                    <set name = "topic">general</set>
+                </think>
+	        </template>
+        </category>
+	</topic>
+</aiml>
